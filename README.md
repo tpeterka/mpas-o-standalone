@@ -7,8 +7,8 @@ Clone this repository and cd into it. These instructions assume there is a top-l
 ```
 mkdir ~/climate
 cd ~/climate
-git clone https://github.com/tpeterka/mpas-o-workflow
-cd mpas-o-workflow
+git clone https://github.com/tpeterka/mpas-o-standalone
+cd mpas-o-standalone
 ```
 
 -----
@@ -18,14 +18,14 @@ cd mpas-o-workflow
 ### First time: create and load the Spack environment for MPAS-Ocean
 
 ```
-cd ~/climate/mpas-o-workflow
+cd ~/climate/mpas-o-standalone
 source ./create-mpas.sh     # requires being in the same directory to work properly
 ```
 
 ### Subsequent times: load the Spack environment for MPAS-Ocean
 
 ```
-source ~/climate/mpas-o-workflow/load-mpas.sh
+source ~/climate/mpas-o-standalone/load-mpas.sh
 ```
 
 -----
@@ -53,7 +53,7 @@ This will take ~ 5 minutes to compile.
 
 ## Setting up a test case to execute
 
-Compass is an E3SM system for generating and running test cases for MPAS-Ocean, and relies on conda environments. The instructions below assume you have cond or miniconda already installed. If not, go [here](https://docs.conda.io/en/latest/miniconda.html) first.
+Compass is an E3SM system for generating and running test cases for MPAS-Ocean, and relies on conda environments. The instructions below assume you have conda or miniconda already installed. If not, go [here](https://docs.conda.io/en/latest/miniconda.html) first.
 
 ### First time: install Compass and create Compass environment
 
@@ -107,7 +107,7 @@ Assumes that `load_dev_compass_1.2.0-alpha.4.sh` is the name of the conda enviro
 
 ```
 source ~/compass-env-only/load_dev_compass_1.2.0-alpha.4.sh
-source ~/climate/mpas-o-workflow/load-mpas.sh
+source ~/climate/mpas-o-standalone/load-mpas.sh
 cd ~/spack-baroclinic-test/ocean/baroclinic_channel/10km/default
 compass run
 ```
