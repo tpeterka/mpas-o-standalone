@@ -1,4 +1,4 @@
-# Instructions for Building MPAS-Ocean to Run in a Wilkins Workflow
+# Instructions for Building MPAS-Ocean as a Standalone Code (no workflow)
 
 Installation is done through Spack. If you don't have Spack installed or if Spack is new to you, go [here](https://spack.readthedocs.io/en/latest/) first.
 
@@ -40,19 +40,6 @@ git clone https://github.com/E3SM-Project/E3SM
 cd E3SM
 git submodule update --init --recursive
 ```
-
-## First time: modify MPAS-Ocean makefiles to link to Henson
-
-Edit ~climate/E3SM/components/mpas-ocean/Makefile:
-
-Insert at line 596:
-`LIBS += -L $(HENSON)/lib -lhenson`
-
-Insert at line 732:
-`LDFLAGS += -shared`
-
-Edit line 1002 to add .so to executable name: `$(EXE_NAME).so`
-
 ### Build MPAS-Ocean
 
 ```
@@ -61,16 +48,6 @@ make clean              # if dirty
 make -j gfortran
 ```
 This will take ~ 5 minutes to compile.
-
-### Create a run script for MPAS-Ocean
-
-Edit (create) `~/climate/E3SM/components/mpas-ocean/ocean_model`:
-
-`python3 ~/climate/mpas-o-workflow/mpas-henson.py`
-
-Set permissions of `ocean_model` to executable:
-
-`chmod 755 ~/climate/E3SM/components/mpas-ocean/ocean_model`
 
 -----
 
