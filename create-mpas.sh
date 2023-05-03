@@ -41,18 +41,14 @@ export MPAS_SHELL=/bin/bash
 export CORE=ocean
 export SHAREDLIB=true
 
-# clone and build MPAS-O
-# echo "cloning and building MPAS-Ocean"
-# git clone https://github.com/E3SM-Project/E3SM
-# cd E3SM
-# git submodule update --init --recursive
-# cd components/mpas-ocean
-# make gfortran
-
 # set LD_LIBRARY_PATH
 echo "setting flags for running MPAS-Ocean"
 export LD_LIBRARY_PATH=$NETCDF/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$NETCDFF/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$HDF5/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$PIO/lib:$LD_LIBRARY_PATH
+
+# give openMP 1 core for now to prevent using all cores for threading
+# could set a more reasonable number to distribute cores between mpi + openMP
+export OMP_NUM_THREADS=1
 

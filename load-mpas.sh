@@ -29,3 +29,6 @@ export LD_LIBRARY_PATH=$HDF5/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$PIO/lib:$LD_LIBRARY_PATH
 echo "library paths are set for running MPAS-Ocean"
 
+# give openMP 1 core for now to prevent using all cores for threading
+# could set a more reasonable number to distribute cores between mpi + openMP
+export OMP_NUM_THREADS=1
