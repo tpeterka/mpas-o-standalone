@@ -40,6 +40,25 @@ git clone https://github.com/E3SM-Project/E3SM
 cd E3SM
 git submodule update --init --recursive
 ```
+On a new machine, if you are denied permission to execute the `git submodule update --init --recursive` command, you
+need to copy your ssh public key to your github account:
+```
+cd ~/.ssh
+ls
+```
+If a public key doesn't exist:
+```
+ssh-keygen -t ed25519 -C "<your email address>"
+# press enter for all prompts
+```
+Copy the key to the clipboard, log into your account on github.com, edit your settings, and add the SSH key.
+
+Also first time only for a new git configuration, you may want to do:
+```
+git config --global user.email "<your email address>"
+git config --global user.name "<your name>"
+```
+
 ### Build MPAS-Ocean
 
 ```
