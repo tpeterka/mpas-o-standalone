@@ -2,13 +2,25 @@
 
 Installation is done through Spack. If you don't have Spack installed or if Spack is new to you, go [here](https://spack.readthedocs.io/en/latest/) first.
 
-Clone this repository and cd into it. These instructions assume there is a top-level directory called climate.
+-----
+
+## Clone this repository
+
+These instructions assume there is a top-level directory called climate.
 
 ```
 mkdir ~/climate
 cd ~/climate
 git clone https://github.com/tpeterka/mpas-o-standalone
-cd mpas-o-standalone
+```
+
+-----
+
+## First time: Add the following Spack repository to your local Spack installation
+
+Mpas-o-scorpio
+```
+spack repo add ~/climate/mpas-o-standalone/mpas-o-scorpio
 ```
 
 -----
